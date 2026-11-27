@@ -228,5 +228,5 @@ def metrics():
 iniciar_db()
 
 if __name__ == "__main__":
-    # VULN-07: debug desactivado
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    # VULN-07: debug desactivado y enlace restringido a localhost por defecto
+    app.run(host=os.environ.get("FLASK_HOST", "127.0.0.1"), port=5000, debug=False)
